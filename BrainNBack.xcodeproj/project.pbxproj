@@ -13,6 +13,8 @@
 		55B0EDCF21C023830001B1B7 /* BrainNBack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDCD21C023830001B1B7 /* BrainNBack.xcdatamodeld */; };
 		55B0EDD121C023930001B1B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55B0EDD021C023930001B1B7 /* Assets.xcassets */; };
 		55B0EDD421C023930001B1B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B0EDD221C023930001B1B7 /* LaunchScreen.storyboard */; };
+		55E844DC21C4056900592210 /* UIGameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E844DB21C4056900592210 /* UIGameTableViewController.swift */; };
+		55E844DE21C40ADB00592210 /* UISettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		55B0EDD021C023930001B1B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55B0EDD321C023930001B1B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55B0EDD521C023930001B1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		55E844DB21C4056900592210 /* UIGameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGameTableViewController.swift; sourceTree = "<group>"; };
+		55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				55B0EDD221C023930001B1B7 /* LaunchScreen.storyboard */,
 				55B0EDD521C023930001B1B7 /* Info.plist */,
 				55B0EDCD21C023830001B1B7 /* BrainNBack.xcdatamodeld */,
+				55E844DB21C4056900592210 /* UIGameTableViewController.swift */,
+				55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */,
 			);
 			path = BrainNBack;
 			sourceTree = "<group>";
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55E844DE21C40ADB00592210 /* UISettingsTableViewController.swift in Sources */,
 				55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */,
+				55E844DC21C4056900592210 /* UIGameTableViewController.swift in Sources */,
 				55B0EDCF21C023830001B1B7 /* BrainNBack.xcdatamodeld in Sources */,
 				55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */,
 			);
