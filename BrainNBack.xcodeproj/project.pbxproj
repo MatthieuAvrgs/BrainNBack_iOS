@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0336099521C924F800230D72 /* Partie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099421C924F800230D72 /* Partie.swift */; };
+		0336099721C9251300230D72 /* PetitCarre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099621C9251300230D72 /* PetitCarre.swift */; };
+		0336099921C9253B00230D72 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099821C9253B00230D72 /* Settings.swift */; };
+		0336099D21C9356500230D72 /* Statistique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099C21C9356500230D72 /* Statistique.swift */; };
 		0F28876D21C69D2C00961544 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28876C21C69D2C00961544 /* GameController.swift */; };
 		55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC621C023820001B1B7 /* AppDelegate.swift */; };
 		55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC821C023820001B1B7 /* ViewController.swift */; };
@@ -19,6 +23,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0336099421C924F800230D72 /* Partie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Partie.swift; sourceTree = "<group>"; };
+		0336099621C9251300230D72 /* PetitCarre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetitCarre.swift; sourceTree = "<group>"; };
+		0336099821C9253B00230D72 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		0336099C21C9356500230D72 /* Statistique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistique.swift; sourceTree = "<group>"; };
 		0F28876C21C69D2C00961544 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		55B0EDC321C023820001B1B7 /* BrainNBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainNBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B0EDC621C023820001B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +51,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0336099321C924AE00230D72 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0336099621C9251300230D72 /* PetitCarre.swift */,
+				0336099421C924F800230D72 /* Partie.swift */,
+				0336099821C9253B00230D72 /* Settings.swift */,
+				0336099C21C9356500230D72 /* Statistique.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
 		55B0EDBA21C023820001B1B7 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +81,7 @@
 		55B0EDC521C023820001B1B7 /* BrainNBack */ = {
 			isa = PBXGroup;
 			children = (
+				0336099321C924AE00230D72 /* Game */,
 				55B0EDC621C023820001B1B7 /* AppDelegate.swift */,
 				55B0EDC821C023820001B1B7 /* ViewController.swift */,
 				55B0EDCA21C023820001B1B7 /* Main.storyboard */,
@@ -150,8 +170,12 @@
 				55E844DE21C40ADB00592210 /* UISettingsTableViewController.swift in Sources */,
 				0F28876D21C69D2C00961544 /* GameController.swift in Sources */,
 				55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */,
+				0336099521C924F800230D72 /* Partie.swift in Sources */,
 				55E844DC21C4056900592210 /* UIGameTableViewController.swift in Sources */,
 				55B0EDCF21C023830001B1B7 /* BrainNBack.xcdatamodeld in Sources */,
+				0336099921C9253B00230D72 /* Settings.swift in Sources */,
+				0336099721C9251300230D72 /* PetitCarre.swift in Sources */,
+				0336099D21C9356500230D72 /* Statistique.swift in Sources */,
 				55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
