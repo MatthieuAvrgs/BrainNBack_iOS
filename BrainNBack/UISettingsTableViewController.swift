@@ -15,6 +15,7 @@ class UISettingsTableViewController: UIViewController {
     @IBOutlet var lblNiveau: UILabel!
     @IBOutlet var sliderNiveau: UISlider!
     
+    
     @IBOutlet var lblTemps: UILabel!
     @IBOutlet var sliderTemps: UISlider!
     
