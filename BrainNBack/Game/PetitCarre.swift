@@ -35,12 +35,8 @@ class PetitCarre {
     
     
     func randomIndex (listeCarres :[PetitCarre], niveau : Int, caseToGet : String) -> Int{
-        var nbElements : Int = 0
-        for indice in 0...listeCarres.count {
-            if(listeCarres[indice] is PetitCarre){
-                nbElements = nbElements + 1
-            }
-        }
+        let nbElements : Int = listeCarres.count
+
         if(nbElements >= niveau){
             //chance représente la proba que le carré apparaisse à la meme position | proba = 1/ (chance)
             let chance : Int = 3; // 1/3

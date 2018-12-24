@@ -9,29 +9,46 @@
 import UIKit
 
 class GameController: UIViewController {
-
+    
+    @IBOutlet weak var carre1: UIView!
     @IBOutlet weak var carre2: UIView!
+    @IBOutlet weak var carre3: UIView!
+    @IBOutlet weak var carre4: UIView!
+    @IBOutlet weak var carre5: UIView!
+    @IBOutlet weak var carre6: UIView!
+    @IBOutlet weak var carre7: UIView!
+    @IBOutlet weak var carre8: UIView!
+    @IBOutlet weak var carre9: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let listeVueCarre : [UIView]
+        listeVueCarre = [carre1, carre2, carre3, carre4, carre5, carre6, carre7, carre8, carre9]
+        
+        let settingsPartie = Settings ()
+        let partie = Partie (settingPartie : settingsPartie)
         
         
-        carre2.backgroundColor = UIColor.blue
         
+        
+        for i in 0 ... settingsPartie.getNbreItems() {
+            //print("carre ",i)
+            //print(partie.getListeCarres()[i].getPosition())
+            //print(partie.getListeCarres()[i].getSon())
+            //print(partie.getListeCarres()[i].getCouleur())
 
-        // Do any additional setup after loading the view.
+        }
+        
+        
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func changeColor (listeVueCarre : [UIView], index: Int){
+        listeVueCarre[index].backgroundColor=UIColor.blue
     }
-    */
+
+    
 
 }

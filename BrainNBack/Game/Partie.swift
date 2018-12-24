@@ -19,8 +19,8 @@ class Partie {
         self.scorePoint = 0
         self.settingPartie = settingPartie
         self.listeCarres = []
-        for i in 0 ... self.settingPartie.getNbreItems() {
-            listeCarres[i] = PetitCarre(listeCarres : self.listeCarres, niveau : settingPartie.getNiveau())
+        for _ in 0 ... self.settingPartie.getNbreItems() {
+            listeCarres = listeCarres + [PetitCarre(listeCarres : self.listeCarres, niveau : settingPartie.getNiveau())]
         }
         self.statistiquesPartie=[]
         self.statistiques=[]

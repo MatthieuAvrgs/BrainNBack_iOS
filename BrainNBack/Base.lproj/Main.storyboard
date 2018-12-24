@@ -321,6 +321,17 @@
                         <viewLayoutGuide key="safeArea" id="ia8-DO-DrQ"/>
                     </view>
                     <navigationItem key="navigationItem" id="b6H-Zc-Mdb"/>
+                    <connections>
+                        <outlet property="carre1" destination="4c3-Ax-Pmr" id="eHj-Ut-6KQ"/>
+                        <outlet property="carre2" destination="Lgy-Pw-KQx" id="Gz1-1J-d7b"/>
+                        <outlet property="carre3" destination="t8j-pG-luK" id="rw4-RZ-3QN"/>
+                        <outlet property="carre4" destination="Hsu-Sc-zuq" id="2L1-2m-UOE"/>
+                        <outlet property="carre5" destination="78y-tP-7oK" id="XXs-95-G0c"/>
+                        <outlet property="carre6" destination="veQ-YZ-i4F" id="O8f-V5-bl9"/>
+                        <outlet property="carre7" destination="49G-RB-QqB" id="vsF-rl-qoC"/>
+                        <outlet property="carre8" destination="57l-5E-Tb5" id="AZH-vA-nK9"/>
+                        <outlet property="carre9" destination="Xdo-Mx-j45" id="UWd-5h-UGT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fNj-bm-yvu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
