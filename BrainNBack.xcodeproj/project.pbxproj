@@ -12,6 +12,7 @@
 		0336099921C9253B00230D72 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099821C9253B00230D72 /* Settings.swift */; };
 		0336099D21C9356500230D72 /* Statistique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099C21C9356500230D72 /* Statistique.swift */; };
 		0F28876D21C69D2C00961544 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28876C21C69D2C00961544 /* GameController.swift */; };
+		0F28889921D13D6900961544 /* PersistancePartie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28889821D13D6900961544 /* PersistancePartie.swift */; };
 		55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC621C023820001B1B7 /* AppDelegate.swift */; };
 		55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC821C023820001B1B7 /* ViewController.swift */; };
 		55B0EDCC21C023820001B1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B0EDCA21C023820001B1B7 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		0336099821C9253B00230D72 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		0336099C21C9356500230D72 /* Statistique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistique.swift; sourceTree = "<group>"; };
 		0F28876C21C69D2C00961544 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		0F28889821D13D6900961544 /* PersistancePartie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancePartie.swift; sourceTree = "<group>"; };
 		55B0EDC321C023820001B1B7 /* BrainNBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainNBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B0EDC621C023820001B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B0EDC821C023820001B1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				55E844DB21C4056900592210 /* UIGameTableViewController.swift */,
 				55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */,
 				0F28876C21C69D2C00961544 /* GameController.swift */,
+				0F28889821D13D6900961544 /* PersistancePartie.swift */,
 			);
 			path = BrainNBack;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				55B0EDCF21C023830001B1B7 /* BrainNBack.xcdatamodeld in Sources */,
 				0336099921C9253B00230D72 /* Settings.swift in Sources */,
 				0336099721C9251300230D72 /* PetitCarre.swift in Sources */,
+				0F28889921D13D6900961544 /* PersistancePartie.swift in Sources */,
 				0336099D21C9356500230D72 /* Statistique.swift in Sources */,
 				55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */,
 			);

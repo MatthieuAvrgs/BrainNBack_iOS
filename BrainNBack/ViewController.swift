@@ -28,6 +28,11 @@ class ViewController: UIViewController {
         lblNiveauLePlusHaut.text = getiveauLePlusHaut()
         lblNbPartiesJouees.text = getbPartiesJouees()
         lblNiveau.text = getNiveauEnCours()
+        
+        //Database test
+        let data =  PersistancePartie()
+        data.createTable()
+        data.insertPartie()
     }
 
     override func didReceiveMemoryWarning() {
