@@ -21,7 +21,12 @@ class GameController: UIViewController {
     @IBOutlet weak var carre8: UIView!
     @IBOutlet weak var carre9: UIView!
     
+    @IBOutlet weak var boutonPosition: UIButton!
+    @IBOutlet weak var boutonSon: UIButton!
+    @IBOutlet weak var boutonCouleur: UIButton!
     
+    var reponses : [Bool] = [false,false,false]
+
     override func viewDidLoad() {
         super.viewDidLoad()
         let listeVueCarre : [UIView]
@@ -52,10 +57,28 @@ class GameController: UIViewController {
         sonMap[8]="h"
         sonMap[9]="i"
         
+        //on affiche ou pas les boutons
+        if(settingsPartie.isSon() == true){
+            boutonSon.isHidden = false
+        } else {
+            boutonSon.isHidden = true
+        }
+        if(settingsPartie.isCouleur() == true){
+            boutonCouleur.isHidden = false
+        } else {
+            boutonCouleur.isHidden = true
+        }
+        
+        
         DispatchQueue.global(qos:.background).async {
             var color : UIColor = UIColor.blue
             var text : String
             for i in 0 ... settingsPartie.getNbreItems() {
+                //initialisation des réponses
+                self.reponses[0]=false
+                self.reponses[1]=false
+                self.reponses[2]=false
+                
                 //manage la couleur du carré
                 if(settingsPartie.isCouleur() == true){
                     color = colorMap[partie.getListeCarres()[i].getCouleur()]!
@@ -87,14 +110,32 @@ class GameController: UIViewController {
                 
                 //temps entre 2 carrés
                 Thread.sleep(until: Date(timeIntervalSinceNow: TimeInterval(settingsPartie.getTemps())))
+                
+                //enregistrement des réponses
+                let repBool : [Bool] = [self.reponses[0],self.reponses[1],self.reponses[2]]
+                print(repBool)
+                partie.getListeCarres()[i].setReponses(tableauReponses: repBool)
             }
-        
+            partie.calculerScore()
+            print("SCORE ",partie.getScorePoint())
         }
         
         
         
     }
    
+    @IBAction func pressBoutonPosition(_ sender: Any) {
+        reponses[0] = true
+    }
+    
+    @IBAction func pressBoutonSon(_ sender: Any) {
+        reponses[1] = true
+    }
+    
+    @IBAction func pressBoutonCouleur(_ sender: Any) {
+        reponses[2] = true
+    }
+    
     func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
         listeVueCarre[index].backgroundColor=color
     }

@@ -297,6 +297,9 @@
                                         <color key="backgroundColor" red="0.66666668653488159" green="0.52610102593267183" blue="0.34959671112916924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Position "/>
+                                        <connections>
+                                            <action selector="pressBoutonPosition:" destination="KH5-rc-QdK" eventType="touchUpInside" id="9Fa-DO-SRd"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixa-mF-V8z">
                                         <rect key="frame" x="142" y="0.0" width="31" height="30"/>
@@ -305,6 +308,9 @@
                                         <state key="normal" title="Son ">
                                             <color key="titleShadowColor" red="1" green="0.43615012801255737" blue="0.10190647052723567" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressBoutonSon:" destination="KH5-rc-QdK" eventType="touchUpInside" id="PRf-W7-d10"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isb-ff-0Na">
                                         <rect key="frame" x="256" y="0.0" width="54" height="30"/>
@@ -313,6 +319,9 @@
                                         <state key="normal" title="Couleur">
                                             <color key="titleShadowColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="pressBoutonCouleur:" destination="KH5-rc-QdK" eventType="touchUpInside" id="euj-kZ-UK1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -322,6 +331,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="b6H-Zc-Mdb"/>
                     <connections>
+                        <outlet property="boutonCouleur" destination="Isb-ff-0Na" id="XjW-IC-mvm"/>
+                        <outlet property="boutonPosition" destination="dhG-rx-DX3" id="MUT-HB-nO1"/>
+                        <outlet property="boutonSon" destination="Ixa-mF-V8z" id="zgr-uq-cfz"/>
                         <outlet property="carre1" destination="4c3-Ax-Pmr" id="eHj-Ut-6KQ"/>
                         <outlet property="carre2" destination="Lgy-Pw-KQx" id="Gz1-1J-d7b"/>
                         <outlet property="carre3" destination="t8j-pG-luK" id="rw4-RZ-3QN"/>

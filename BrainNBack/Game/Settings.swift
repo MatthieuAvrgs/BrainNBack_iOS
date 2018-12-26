@@ -12,7 +12,7 @@ class Settings {
     var niveau : Int = 1
     var temps : CLong = 3
     var nbreItems : Int = 8
-    var couleur : Bool = true
+    var couleur : Bool = false
     var son : Bool = true
     
     init() {

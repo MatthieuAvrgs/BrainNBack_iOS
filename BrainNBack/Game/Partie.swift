@@ -39,76 +39,68 @@ class Partie {
     }
     
     func calculerScore(){
-//        self.obtenirStatistiquesPartie();
-//        self.compterLesPoints();
+        self.obtenirStatistiquesPartie();
+        self.compterLesPoints();
     }
     
-//    func compterLesPoints(){
-//        Iterator<Statistique> it = self.statistiquesPartie.iterator();
-//        int totalBonnesReponses=0;
-//        int totalMauvaisesReponses=0;
-//        int totalOublies=0;
-//        while (it.hasNext()) {
-//            Statistique stat = it.next();
-//            totalBonnesReponses += stat.getBonnesReponses();
-//            totalMauvaisesReponses += stat.getMauvaisesReponses();
-//            totalOublies += stat.getOublies();
-//        }
-//        int denominateur=(totalBonnesReponses+totalOublies)*2;
-//        denominateur=denominateur==0?1:denominateur;
-//        self.scorePoint = (totalBonnesReponses*2-totalMauvaisesReponses)*100/(denominateur);
-//        if(self.scorePoint<0){
-//            self.scorePoint=0;
-//        }
-//    }
-    
-//    func obtenirStatistiquesPartie(){
-//        //initialisation de la hashmap pour les statistiques de la partie
-//        Map <String, Statistique> localStats = new HashMap<String, Statistique>();
-//        localStats.put("position",new Statistique());
-//        if(settingPartie.isSon()==true){
-//            localStats.put("son",new Statistique());
-//        }
-//        if(settingPartie.isCouleur()==true){
-//            localStats.put("couleur",new Statistique());
-//        }
-//
-//        int niveau = this.settingPartie.getNiveau();
-//
-//        // initialisation des indices de reponse
-//        int reponsePosition = 0;
-//        int reponseSon = 0;
-//        int reponseCouleur = 0;
-//
-//        //boucle qui permet d'itérer sur chaque PetitCarre
-//        for(int index = 0; index<(getSettingPartie().getNbreItems()); index++) {
-//            //si indew>=niveau signifie qu'une réponse de l'utilisateur est possible
-//            if(index>=niveau){
-//                //position
-//                //on donne en paramètre la position du carre actuel et celui N fois avant, on donne aussi la réponse du joueur
-//                reponsePosition = this.traiterReponseJoueur(this.listeCarres[index].getPosition(),this.listeCarres[index-niveau].getPosition(),this.listeCarres[index].getReponses()[0]);
-//                //on appelle une méthode de la classe Score qui permet de traiter la réponse obtenue par la méthode traiterReponseJoueur
-//                localStats.get("position").traiterReponseStatistique(reponsePosition);
-//
-//                //son
-//                if(settingPartie.isSon()==true){
-//                    reponseSon = this.traiterReponseJoueur(this.listeCarres[index].getSon(),this.listeCarres[index-niveau].getSon(),this.listeCarres[index].getReponses()[1]);
-//                    localStats.get("son").traiterReponseStatistique(reponseSon);
-//                }
-//                //couleur
-//                if(settingPartie.isCouleur()==true){
-//                    reponseCouleur = this.traiterReponseJoueur(this.listeCarres[index].getCouleur(),this.listeCarres[index-niveau].getCouleur(),this.listeCarres[index].getReponses()[2]);
-//                    localStats.get("couleur").traiterReponseStatistique(reponseCouleur);
-//                }
-//            }
-//        }
-//        Iterator<Map.Entry<String, Statistique>> it3 = localStats.entrySet().iterator();
-//        while (it3.hasNext()) {
-//            Map.Entry<String, Statistique> pair = it3.next();
-//            pair.getValue().setTitre(pair.getKey());
-//            this.statistiquesPartie.add(pair.getValue());
-//        }
-//    }
+    func compterLesPoints(){
+        var totalBonnesReponses = 0
+        var totalMauvaisesReponses = 0
+        var totalOublies = 0
+        for stat in self.statistiquesPartie {
+            totalBonnesReponses += stat.getBonnesReponses()
+            totalMauvaisesReponses += stat.getMauvaisesReponses()
+            totalOublies += stat.getOublies()
+        }
+        var denominateur=(totalBonnesReponses+totalOublies)*2
+        denominateur=denominateur==0 ? 1 : denominateur
+        self.scorePoint = (totalBonnesReponses*2-totalMauvaisesReponses)*100/(denominateur)
+        if(self.scorePoint<0){
+            self.scorePoint=0
+        }
+    }
+    func obtenirStatistiquesPartie(){
+        //initialisation de la hashmap pour les statistiques de la partie
+        var localStats : [String : Statistique] = [String : Statistique]()
+        localStats["position"] = Statistique()
+        if(settingPartie.isSon()==true){
+            localStats["son"] = Statistique()
+        }
+        if(settingPartie.isCouleur()==true){
+            localStats["couleur"] = Statistique()
+        }
+        let niveau = self.settingPartie.getNiveau()
+        // initialisation des indices de reponse
+        var reponsePosition = 0
+        var reponseSon = 0
+        var reponseCouleur = 0
+        
+        //boucle qui permet d'itérer sur chaque PetitCarre
+        for index in 0...getSettingPartie().getNbreItems() {
+            //si indew>=niveau signifie qu'une réponse de l'utilisateur est possible
+            if(index>=niveau){
+                //position
+                //on donne en paramètre la position du carre actuel et celui N fois avant, on donne aussi la réponse du joueur
+                reponsePosition = self.traiterReponseJoueur(infoCarreEnCours : self.listeCarres[index].getPosition(),infoNCarreAvant : self.listeCarres[index-niveau].getPosition(), reponseJoueur : self.listeCarres[index].getReponses()[0])
+                //on appelle une méthode de la classe Score qui permet de traiter la réponse obtenue par la méthode traiterReponseJoueur
+                localStats["position"]!.traiterReponseStatistique(reponse : reponsePosition)
+                //son
+                if(settingPartie.isSon()==true){
+                    reponseSon = self.traiterReponseJoueur(infoCarreEnCours : self.listeCarres[index].getSon(),infoNCarreAvant : self.listeCarres[index-niveau].getSon(), reponseJoueur : self.listeCarres[index].getReponses()[1])
+                    localStats["son"]!.traiterReponseStatistique(reponse : reponseSon)
+                }
+                //couleur
+                if(settingPartie.isCouleur()==true){
+                    reponseCouleur = self.traiterReponseJoueur(infoCarreEnCours : self.listeCarres[index].getCouleur(),infoNCarreAvant : self.listeCarres[index-niveau].getCouleur(), reponseJoueur : self.listeCarres[index].getReponses()[2])
+                    localStats["couleur"]!.traiterReponseStatistique(reponse : reponseCouleur)
+                }
+            }
+        }
+        for (e, value) in localStats {
+            value.setTitre(titre: e)
+            self.statistiquesPartie = self.statistiquesPartie + [value]
+        }
+    }
     
     func traiterReponseJoueur(infoCarreEnCours : Int, infoNCarreAvant : Int, reponseJoueur : Bool) -> Int{
     //bonne réponse on retourne 1
