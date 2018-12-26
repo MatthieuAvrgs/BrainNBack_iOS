@@ -26,7 +26,8 @@ class GameController: UIViewController {
     @IBOutlet weak var boutonCouleur: UIButton!
     
     var reponses : [Bool] = [false,false,false]
-
+    var finJeu : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let listeVueCarre : [UIView]
@@ -57,6 +58,8 @@ class GameController: UIViewController {
         sonMap[8]="h"
         sonMap[9]="i"
         
+        self.finJeu = false
+
         //on affiche ou pas les boutons
         if(settingsPartie.isSon() == true){
             boutonSon.isHidden = false
@@ -69,55 +72,60 @@ class GameController: UIViewController {
             boutonCouleur.isHidden = true
         }
         
-        
         DispatchQueue.global(qos:.background).async {
             var color : UIColor = UIColor.blue
             var text : String
             for i in 0 ... settingsPartie.getNbreItems() {
-                //initialisation des réponses
-                self.reponses[0]=false
-                self.reponses[1]=false
-                self.reponses[2]=false
-                
-                //manage la couleur du carré
-                if(settingsPartie.isCouleur() == true){
-                    color = colorMap[partie.getListeCarres()[i].getCouleur()]!
+                if(self.finJeu == false){
+                    //initialisation des réponses
+                    self.reponses[0]=false
+                    self.reponses[1]=false
+                    self.reponses[2]=false
+                    
+                    //manage la couleur du carré
+                    if(settingsPartie.isCouleur() == true){
+                        color = colorMap[partie.getListeCarres()[i].getCouleur()]!
+                    }
+                    
+                    print("carre ",i)
+                    //print(settingsPartie.getNbreItems())
+                    //print(partie.getListeCarres()[i].getPosition())
+                    //print(partie.getListeCarres()[i].getSon())
+                    //print(partie.getListeCarres()[i].getCouleur())
+                    //carré à afficher
+                    DispatchQueue.main.async {
+                        self.changeColor(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition(), color : color)
+                    }
+                    
+                    // manage le son du carré
+                    if(settingsPartie.isSon() == true){
+                        text = sonMap[partie.getListeCarres()[i].getSon()]!
+                        let utterance = AVSpeechUtterance(string: text)
+                        utterance.voice = AVSpeechSynthesisVoice (language: "fr-FR")
+                        let synth = AVSpeechSynthesizer()
+                        synth.speak(utterance)
+                    }
+                    
+                    //désaffichage
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                        self.changeColorGrey(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition())
+                    }
+                    
+                    //temps entre 2 carrés
+                    Thread.sleep(until: Date(timeIntervalSinceNow: TimeInterval(settingsPartie.getTemps())))
+                    
+                    //enregistrement des réponses
+                    let repBool : [Bool] = [self.reponses[0],self.reponses[1],self.reponses[2]]
+                    print(repBool)
+                    partie.getListeCarres()[i].setReponses(tableauReponses: repBool)
                 }
-                
-                print("carre ",i)
-                //print(settingsPartie.getNbreItems())
-                //print(partie.getListeCarres()[i].getPosition())
-                //print(partie.getListeCarres()[i].getSon())
-                //print(partie.getListeCarres()[i].getCouleur())
-                //carré à afficher
-                DispatchQueue.main.async {
-                    self.changeColor(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition(), color : color)
-                }
-                
-                // manage le son du carré
-                if(settingsPartie.isSon() == true){
-                    text = sonMap[partie.getListeCarres()[i].getSon()]!
-                    let utterance = AVSpeechUtterance(string: text)
-                    utterance.voice = AVSpeechSynthesisVoice (language: "fr-FR")
-                    let synth = AVSpeechSynthesizer()
-                    synth.speak(utterance)
-                }
-                
-                //désaffichage
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-                    self.changeColorGrey(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition())
-                }
-                
-                //temps entre 2 carrés
-                Thread.sleep(until: Date(timeIntervalSinceNow: TimeInterval(settingsPartie.getTemps())))
-                
-                //enregistrement des réponses
-                let repBool : [Bool] = [self.reponses[0],self.reponses[1],self.reponses[2]]
-                print(repBool)
-                partie.getListeCarres()[i].setReponses(tableauReponses: repBool)
             }
-            partie.calculerScore()
-            print("SCORE ",partie.getScorePoint())
+            if(self.finJeu == false){
+                partie.calculerScore()
+                print("SCORE ",partie.getScorePoint())
+                self.afficherDialog(partie : partie)
+
+            }
         }
         
         
@@ -136,6 +144,23 @@ class GameController: UIViewController {
         reponses[2] = true
     }
     
+    func afficherDialog (partie : Partie){
+        //let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        
+        //let customView = (UIView)ScorePopUpUITableViewController()
+        
+        //alertController.view.addSubview(customView)
+        
+        //let somethingAction = UIAlertAction(title: "Something", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
+        
+        //let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
+        
+        //alertController.addAction(somethingAction)
+        //alertController.addAction(cancelAction)
+        
+        //self.present(alertController, animated: true, completion:{})
+    }
+
     func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
         listeVueCarre[index].backgroundColor=color
     }
@@ -143,6 +168,11 @@ class GameController: UIViewController {
         listeVueCarre[index].backgroundColor=UIColor.lightGray
     }
 
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParentViewController {
+            self.finJeu = true
+        }
+    }
 
 }
