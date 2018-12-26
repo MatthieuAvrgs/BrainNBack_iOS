@@ -10,9 +10,9 @@ import Foundation
 
 class Settings {
     var niveau : Int = 1
-    var temps : CLong = 2500
-    var nbreItems : Int = 4
-    var couleur : Bool = false
+    var temps : CLong = 3
+    var nbreItems : Int = 8
+    var couleur : Bool = true
     var son : Bool = true
     
     init() {

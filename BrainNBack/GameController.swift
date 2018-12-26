@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameController: UIViewController {
     
@@ -29,27 +30,64 @@ class GameController: UIViewController {
         let settingsPartie = Settings ()
         let partie = Partie (settingPartie : settingsPartie)
 
+        var colorMap : [Int : UIColor] = [Int : UIColor]()
+        colorMap[1]=UIColor.brown
+        colorMap[2]=UIColor.blue
+        colorMap[3]=UIColor.black
+        colorMap[4]=UIColor.cyan
+        colorMap[5]=UIColor.yellow
+        colorMap[6]=UIColor.green
+        colorMap[7]=UIColor.magenta
+        colorMap[8]=UIColor.orange
+        colorMap[9]=UIColor.red
+
+        var sonMap : [Int : String] = [Int : String]()
+        sonMap[1]="a"
+        sonMap[2]="b"
+        sonMap[3]="c"
+        sonMap[4]="d"
+        sonMap[5]="e"
+        sonMap[6]="f"
+        sonMap[7]="g"
+        sonMap[8]="h"
+        sonMap[9]="i"
         
         DispatchQueue.global(qos:.background).async {
-                for i in 0 ... settingsPartie.getNbreItems() {
-                    //print("carre ",i)
-                    print(settingsPartie.getNbreItems())
-                    print(partie.getListeCarres()[i].getPosition())
-                    print(partie.getListeCarres()[i].getSon())
-                    print(partie.getListeCarres()[i].getCouleur())
-                    
-                    //carré à afficher
-                    DispatchQueue.main.async {
-                        self.changeColor(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition())
-                    }
-                    //désaffichage
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
-                        self.changeColorGrey(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition())
-                        
-                    }
-                    //temps entre 2 carrés
-                    Thread.sleep(until: Date(timeIntervalSinceNow: 3))
-        }
+            var color : UIColor = UIColor.blue
+            var text : String
+            for i in 0 ... settingsPartie.getNbreItems() {
+                //manage la couleur du carré
+                if(settingsPartie.isCouleur() == true){
+                    color = colorMap[partie.getListeCarres()[i].getCouleur()]!
+                }
+                
+                print("carre ",i)
+                //print(settingsPartie.getNbreItems())
+                //print(partie.getListeCarres()[i].getPosition())
+                //print(partie.getListeCarres()[i].getSon())
+                //print(partie.getListeCarres()[i].getCouleur())
+                //carré à afficher
+                DispatchQueue.main.async {
+                    self.changeColor(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition(), color : color)
+                }
+                
+                // manage le son du carré
+                if(settingsPartie.isSon() == true){
+                    text = sonMap[partie.getListeCarres()[i].getSon()]!
+                    let utterance = AVSpeechUtterance(string: text)
+                    utterance.voice = AVSpeechSynthesisVoice (language: "fr-FR")
+                    let synth = AVSpeechSynthesizer()
+                    synth.speak(utterance)
+                }
+                
+                //désaffichage
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                    self.changeColorGrey(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition())
+                }
+                
+                //temps entre 2 carrés
+                Thread.sleep(until: Date(timeIntervalSinceNow: TimeInterval(settingsPartie.getTemps())))
+            }
         
         }
         
@@ -57,8 +95,8 @@ class GameController: UIViewController {
         
     }
    
-    func changeColor (listeVueCarre : [UIView], index: Int){
-        listeVueCarre[index].backgroundColor=UIColor.blue
+    func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
+        listeVueCarre[index].backgroundColor=color
     }
     func changeColorGrey (listeVueCarre : [UIView], index: Int){
         listeVueCarre[index].backgroundColor=UIColor.lightGray
