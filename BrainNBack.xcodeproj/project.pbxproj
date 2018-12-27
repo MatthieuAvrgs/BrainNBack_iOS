@@ -13,6 +13,10 @@
 		0336099D21C9356500230D72 /* Statistique.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0336099C21C9356500230D72 /* Statistique.swift */; };
 		0F28876D21C69D2C00961544 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28876C21C69D2C00961544 /* GameController.swift */; };
 		0F28889921D13D6900961544 /* PersistancePartie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28889821D13D6900961544 /* PersistancePartie.swift */; };
+		0F9E0E0121D5241100B37A77 /* HistoriqueTableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E0E0021D5241100B37A77 /* HistoriqueTableViews.swift */; };
+		0F9E0E0321D5248A00B37A77 /* StatUnePartie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E0E0221D5248A00B37A77 /* StatUnePartie.swift */; };
+		0F9E0E0621D5300800B37A77 /* CelluleStatUnePartie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E0E0521D5300800B37A77 /* CelluleStatUnePartie.swift */; };
+		0F9E0E0821D5322900B37A77 /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9E0E0721D5322900B37A77 /* test.swift */; };
 		55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC621C023820001B1B7 /* AppDelegate.swift */; };
 		55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B0EDC821C023820001B1B7 /* ViewController.swift */; };
 		55B0EDCC21C023820001B1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55B0EDCA21C023820001B1B7 /* Main.storyboard */; };
@@ -107,6 +111,10 @@
 		0336099C21C9356500230D72 /* Statistique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistique.swift; sourceTree = "<group>"; };
 		0F28876C21C69D2C00961544 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		0F28889821D13D6900961544 /* PersistancePartie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistancePartie.swift; sourceTree = "<group>"; };
+		0F9E0E0021D5241100B37A77 /* HistoriqueTableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoriqueTableViews.swift; sourceTree = "<group>"; };
+		0F9E0E0221D5248A00B37A77 /* StatUnePartie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatUnePartie.swift; sourceTree = "<group>"; };
+		0F9E0E0521D5300800B37A77 /* CelluleStatUnePartie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CelluleStatUnePartie.swift; sourceTree = "<group>"; };
+		0F9E0E0721D5322900B37A77 /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		55B0EDC321C023820001B1B7 /* BrainNBack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrainNBack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55B0EDC621C023820001B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55B0EDC821C023820001B1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +163,7 @@
 		55B0EDBA21C023820001B1B7 = {
 			isa = PBXGroup;
 			children = (
+				0F9E0E0521D5300800B37A77 /* CelluleStatUnePartie.swift */,
 				55B0EDC521C023820001B1B7 /* BrainNBack */,
 				55B0EDC421C023820001B1B7 /* Products */,
 				E855BA1321D391B700C9898B /* SQLite.xcodeproj */,
@@ -177,15 +186,18 @@
 				55B0EDC621C023820001B1B7 /* AppDelegate.swift */,
 				55B0EDC821C023820001B1B7 /* ViewController.swift */,
 				55B0EDCA21C023820001B1B7 /* Main.storyboard */,
+				0F9E0E0721D5322900B37A77 /* test.swift */,
 				55B0EDD021C023930001B1B7 /* Assets.xcassets */,
 				55B0EDD221C023930001B1B7 /* LaunchScreen.storyboard */,
 				55B0EDD521C023930001B1B7 /* Info.plist */,
 				55B0EDCD21C023830001B1B7 /* BrainNBack.xcdatamodeld */,
 				55E844DB21C4056900592210 /* UIGameTableViewController.swift */,
+				0F9E0E0021D5241100B37A77 /* HistoriqueTableViews.swift */,
 				55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */,
 				0F28876C21C69D2C00961544 /* GameController.swift */,
 				0F28889821D13D6900961544 /* PersistancePartie.swift */,
 				E855BA3B21D3C12E00C9898B /* ScorePopUpUITableViewController.swift */,
+				0F9E0E0221D5248A00B37A77 /* StatUnePartie.swift */,
 			);
 			path = BrainNBack;
 			sourceTree = "<group>";
@@ -338,14 +350,18 @@
 				55E844DE21C40ADB00592210 /* UISettingsTableViewController.swift in Sources */,
 				0F28876D21C69D2C00961544 /* GameController.swift in Sources */,
 				55B0EDC921C023820001B1B7 /* ViewController.swift in Sources */,
+				0F9E0E0321D5248A00B37A77 /* StatUnePartie.swift in Sources */,
 				0336099521C924F800230D72 /* Partie.swift in Sources */,
+				0F9E0E0821D5322900B37A77 /* test.swift in Sources */,
 				55E844DC21C4056900592210 /* UIGameTableViewController.swift in Sources */,
 				55B0EDCF21C023830001B1B7 /* BrainNBack.xcdatamodeld in Sources */,
 				0336099921C9253B00230D72 /* Settings.swift in Sources */,
+				0F9E0E0621D5300800B37A77 /* CelluleStatUnePartie.swift in Sources */,
 				0336099721C9251300230D72 /* PetitCarre.swift in Sources */,
 				0F28889921D13D6900961544 /* PersistancePartie.swift in Sources */,
 				E855BA3C21D3C12E00C9898B /* ScorePopUpUITableViewController.swift in Sources */,
 				0336099D21C9356500230D72 /* Statistique.swift in Sources */,
+				0F9E0E0121D5241100B37A77 /* HistoriqueTableViews.swift in Sources */,
 				55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
