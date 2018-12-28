@@ -161,7 +161,8 @@ class GameController: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }))
         
-        let tableViewController = CustomViewController()
+        let tableViewController = storyboard?.instantiateViewController(withIdentifier: "CustomViewController")
+        as! CustomViewController
         tableViewController.updateUI(items: partie.getStatistiquesPartie())
         tableViewController.preferredContentSize = CGSize(width: 272, height: partie.getStatistiquesPartie().count * 44) // 44 => 1 cell
         alertController.setValue(tableViewController, forKey: "contentViewController")

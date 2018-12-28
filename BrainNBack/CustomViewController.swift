@@ -14,7 +14,7 @@ class CustomViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")
+//        tableView.register(ItemTableViewCell.self, forCellReuseIdentifier: "ItemCell")
     }
     
     func updateUI(items: [Statistique]) {

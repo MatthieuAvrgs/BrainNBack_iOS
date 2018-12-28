@@ -103,7 +103,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Historique Parties"/>
                                 <connections>
-                                    <segue destination="JDO-sr-HUZ" kind="show" id="Wws-J0-ItM"/>
+                                    <segue destination="JDO-sr-HUZ" kind="show" id="0Ik-s3-VgZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -441,22 +441,14 @@
         <!--Custom View Controller-->
         <scene sceneID="Wdd-jI-CfB">
             <objects>
-                <tableViewController id="1qT-4n-dkG" customClass="CustomViewController" customModule="BrainNBack" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="CustomViewController" id="1qT-4n-dkG" customClass="CustomViewController" customModule="BrainNBack" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="hxC-bk-2jt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iYb-c1-Lb0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iYb-c1-Lb0" id="c1d-EB-lJK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="7Jt-QJ-GQg" customClass="ItemTableViewCell" customModule="BrainNBack" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Jt-QJ-GQg" id="xYO-ge-R2K">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -497,7 +489,7 @@
                                     <outlet property="bonnesRep" destination="oP4-6L-m1h" id="oMG-Xe-Zi2"/>
                                     <outlet property="mauvaiseRep" destination="otT-c9-vV5" id="okN-Ko-7Uc"/>
                                     <outlet property="oublie" destination="bXK-m7-iZv" id="8fR-EJ-DhK"/>
-                                    <outlet property="titre" destination="GpK-3a-fcC" id="NmH-ix-v48"/>
+                                    <outlet property="titre" destination="GpK-3a-fcC" id="J4e-ZW-9jn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
