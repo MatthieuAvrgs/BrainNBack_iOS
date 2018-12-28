@@ -20,10 +20,11 @@ class StatUnePartie {
             let currentDate = Date()
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy/MM/dd"
-            let date = formatter.string(from: currentDate)
+            self.date  = formatter.string(from: currentDate)
+            
+        } else {
+            self.date  = date
         }
-        
-        self.date  = date
         self.niveau = niveau
         self.couleur = couleur
         self.son = son

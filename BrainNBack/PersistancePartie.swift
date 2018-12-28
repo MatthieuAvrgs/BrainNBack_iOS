@@ -21,7 +21,7 @@ class PersistancePartie {
     let historique_son = Expression<String>("son")
     let historique_score = Expression<String>("score")
     
-    static var pk = 1000; // valeur de départ pour la primary key
+    static var pk = 1200; // valeur de départ pour la primary key
     var tableExist = false
     
     init() {
@@ -90,8 +90,8 @@ class PersistancePartie {
         print (PersistancePartie.pk)
         getPK()
         let insert = self.historique_table.insert(
-            self.historique_id <- 55,
-            self.historique_date <- "10-10-1996",
+            self.historique_id <- PersistancePartie.pk,
+            self.historique_date <- "1996/10/09",
             //            self.historique_niveau <- self.insertParam?["niveau"]! ??  "value",
             //            self.historique_couleur <- self.insertParam?["couleur"]! ?? "hello",
             //            self.historique_son <- self.insertParam?["son"]! ?? "coucou",
@@ -100,6 +100,30 @@ class PersistancePartie {
             self.historique_couleur <- "oui",
             self.historique_son <- "non",
             self.historique_score <- "89"
+        )
+        do {
+            print(insert)
+            try self.database.run(insert)
+            print ("Insert ok")
+        }
+        catch {
+            print (error)
+        }
+        print ("--> insertTableHistorique fin")
+    }
+    
+    func insertStatPartie(stat : StatUnePartie) {
+        print ("--> INSERT")
+        
+        getPK()
+        print ("new pk ", PersistancePartie.pk)
+        let insert = self.historique_table.insert(
+            self.historique_id <- PersistancePartie.pk,
+            self.historique_date <- stat.date,
+            self.historique_niveau <- stat.niveau,
+            self.historique_couleur <- stat.couleur,
+            self.historique_son <- stat.son,
+            self.historique_score <- stat.score
         )
         do {
             print(insert)

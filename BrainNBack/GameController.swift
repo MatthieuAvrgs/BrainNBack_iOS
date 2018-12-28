@@ -59,15 +59,21 @@ class GameController: UIViewController {
         sonMap[9]="i"
         
         self.finJeu = false
+        self.designBouton(btn : boutonPosition)
 
+        
+        
         //on affiche ou pas les boutons
         if(settingsPartie.isSon() == true){
             boutonSon.isHidden = false
+            self.designBouton(btn : boutonSon)
+
         } else {
             boutonSon.isHidden = true
         }
         if(settingsPartie.isCouleur() == true){
             boutonCouleur.isHidden = false
+            self.designBouton(btn : boutonCouleur)
         } else {
             boutonCouleur.isHidden = true
         }
@@ -124,6 +130,9 @@ class GameController: UIViewController {
             if(self.finJeu == false){
                 partie.calculerScore()
                 print("SCORE ",partie.getScorePoint())
+                let data =  PersistancePartie()
+                let statPartie = StatUnePartie(date : "generate", niveau : String(settingsPartie.getNiveau()), couleur : String(settingsPartie.isCouleur()), son : String(settingsPartie.isSon()), score : String(partie.getScorePoint()))
+                data.insertStatPartie(stat : statPartie)
                 DispatchQueue.main.async {
                     self.afficherDialog(partie : partie)
                 }
@@ -201,6 +210,13 @@ class GameController: UIViewController {
         if isMovingFromParentViewController {
             self.finJeu = true
         }
+    }
+    
+    func designBouton (btn : UIButton){
+        btn.layer.cornerRadius = 5
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
     }
 
 }

@@ -27,6 +27,7 @@ class CustomViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let statPartie = items[indexPath.row]
+        print("initialisation cellule", indexPath)
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
         cell.updateUI(stat: statPartie)
         return cell

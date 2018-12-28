@@ -15,18 +15,23 @@ class ViewController: UIViewController {
     @IBOutlet var lblNbPartiesJouees: UILabel!
     
     @IBOutlet var lblNiveau: UILabel!
-    @IBOutlet var sliderNiveau: UISlider!
     
-    @IBAction func sliderValueUpdate(_ sender: Any) {
-        lblNiveau.text = String(Int(sliderNiveau.value))
-    }
-    
-    
+    var historiqueData : [StatUnePartie] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblMeilleurScore.text = getMeilleurScore()
-        lblNiveauLePlusHaut.text = getiveauLePlusHaut()
-        lblNbPartiesJouees.text = getbPartiesJouees()
+        do {
+            let data =  PersistancePartie()
+            let database = try data.database.prepare(data.historique_table)
+            for ligne in database {
+                self.historiqueData.append(StatUnePartie(date: ligne[data.historique_date], niveau: ligne[data.historique_niveau], couleur: ligne[data.historique_couleur], son: ligne[data.historique_son], score: ligne[data.historique_score]))
+            }
+        } catch{
+            print("--> selectModules est en erreur")
+        }
+        
+        lblMeilleurScore.text = getMeilleurScore(data : self.historiqueData)
+        lblNiveauLePlusHaut.text = getiveauLePlusHaut(data : self.historiqueData)
+        lblNbPartiesJouees.text = getbPartiesJouees(data : self.historiqueData)
         lblNiveau.text = getNiveauEnCours()
         
         //Database test
@@ -41,17 +46,51 @@ class ViewController: UIViewController {
         
     }
     
-    func getMeilleurScore() -> String{
-        return String(0)+"%";
+    func getMeilleurScore(data :  [StatUnePartie]) -> String{
+        var meilleurScore : Int = 0
+        for stat in data {
+            var score : Int
+            if(Int(stat.score) != nil){
+                score = Int(stat.score)!
+            } else{
+                score = 0
+            }
+            if(score > meilleurScore){
+                meilleurScore = score
+            }
+        }
+        return String(meilleurScore)+"%"
     }
-    func getiveauLePlusHaut() -> String{
-        return String(0);
+    func getiveauLePlusHaut(data :  [StatUnePartie]) -> String{
+        var meilleurNiveau : Int = 0
+        for stat in data {
+            var lvl : Int
+            if(Int(stat.niveau) != nil){
+                lvl = Int(stat.niveau)!
+            } else{
+                lvl = 0
+            }
+            if(lvl > meilleurNiveau){
+                meilleurNiveau = lvl
+            }
+        }
+        return String(meilleurNiveau)
     }
-    func getbPartiesJouees() -> String{
-        return String(0);
+    func getbPartiesJouees(data :  [StatUnePartie]) -> String{
+        var compteurParties = 0
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = formatter.string(from: currentDate)
+        for stat in data {
+            if(stat.date == date){
+                compteurParties = compteurParties + 1
+            }
+        }
+        return String(compteurParties)
     }
     func getNiveauEnCours() -> String{
-        return String(1);
+        return String(1)
     }
 
 
