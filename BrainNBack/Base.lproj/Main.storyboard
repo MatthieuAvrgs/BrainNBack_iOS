@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbg-kn-elo">
-                                <rect key="frame" x="186" y="117" width="42" height="21"/>
+                                <rect key="frame" x="186" y="117" width="55" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -372,15 +372,26 @@
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeU-uT-UMJ">
-                                <rect key="frame" x="70" y="508" width="270" height="32"/>
+                                <rect key="frame" x="70" y="508" width="270" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-rx-DX3">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <color key="backgroundColor" red="0.66666668653488159" green="0.52610102593267183" blue="0.34959671112916924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="eW6-tM-GYB"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Position "/>
+                                        <connections>
+                                            <action selector="pressBoutonPosition:" destination="KH5-rc-QdK" eventType="touchUpInside" id="9Fa-DO-SRd"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixa-mF-V8z">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="32"/>
+                                        <rect key="frame" x="90" y="0.0" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.66666668650000005" green="0.52610102589999996" blue="0.34959671110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="BT7-nH-AJu"/>
-                                            <constraint firstAttribute="height" constant="32" id="Szg-Cq-m9B"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Son ">
@@ -391,10 +402,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Isb-ff-0Na">
-                                        <rect key="frame" x="90" y="0.0" width="90" height="32"/>
+                                        <rect key="frame" x="180" y="0.0" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.66666668650000005" green="0.52610102589999996" blue="0.34959671110000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="1mi-Gb-L2U"/>
                                             <constraint firstAttribute="width" constant="90" id="4WS-Vz-gGV"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -403,19 +413,6 @@
                                         </state>
                                         <connections>
                                             <action selector="pressBoutonCouleur:" destination="KH5-rc-QdK" eventType="touchUpInside" id="euj-kZ-UK1"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhG-rx-DX3">
-                                        <rect key="frame" x="180" y="0.0" width="90" height="32"/>
-                                        <color key="backgroundColor" red="0.66666668653488159" green="0.52610102593267183" blue="0.34959671112916924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="32" id="GnN-Lr-PRq"/>
-                                            <constraint firstAttribute="width" constant="90" id="eW6-tM-GYB"/>
-                                        </constraints>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Position "/>
-                                        <connections>
-                                            <action selector="pressBoutonPosition:" destination="KH5-rc-QdK" eventType="touchUpInside" id="9Fa-DO-SRd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -453,16 +450,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iYb-c1-Lb0">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iYb-c1-Lb0" id="c1d-EB-lJK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" id="7Jt-QJ-GQg" customClass="ItemTableViewCell" customModule="BrainNBack" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Jt-QJ-GQg" id="xYO-ge-R2K">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
