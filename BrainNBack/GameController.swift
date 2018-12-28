@@ -59,7 +59,12 @@ class GameController: UIViewController {
         sonMap[9]="i"
         
         self.finJeu = false
+        self.designBouton(btn : boutonPosition)
+        self.designBouton(btn : boutonSon)
+        self.designBouton(btn : boutonCouleur)
 
+        
+        
         //on affiche ou pas les boutons
         if(settingsPartie.isSon() == true){
             boutonSon.isHidden = false
@@ -200,6 +205,14 @@ class GameController: UIViewController {
         if isMovingFromParentViewController {
             self.finJeu = true
         }
+    }
+    
+    func designBouton (btn : UIButton){
+        btn.layer.cornerRadius = 5
+        btn.layer.borderWidth = 1
+        btn.layer.borderColor = UIColor.black.cgColor
+        btn.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
+        
     }
 
 }
