@@ -90,16 +90,16 @@ class PersistancePartie {
         print (PersistancePartie.pk)
         getPK()
         let insert = self.historique_table.insert(
-            self.historique_id <- 17,
-            self.historique_date <- "a",
+            self.historique_id <- 55,
+            self.historique_date <- "10-10-1996",
             //            self.historique_niveau <- self.insertParam?["niveau"]! ??  "value",
             //            self.historique_couleur <- self.insertParam?["couleur"]! ?? "hello",
             //            self.historique_son <- self.insertParam?["son"]! ?? "coucou",
             //            self.historique_score <- self.insertParam?["score"]! ?? "au revoir"
-            self.historique_niveau <- "qq",
-            self.historique_couleur <- "qq",
-            self.historique_son <- "qq",
-            self.historique_score <- "qq"
+            self.historique_niveau <- "1",
+            self.historique_couleur <- "oui",
+            self.historique_son <- "non",
+            self.historique_score <- "89"
         )
         do {
             print(insert)
