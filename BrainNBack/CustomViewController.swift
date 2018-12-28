@@ -18,7 +18,6 @@ class CustomViewController: UITableViewController {
     }
     
     func updateUI(items: [Statistique]) {
-        print("ITEMS ",items)
         self.items = items
     }
     
@@ -27,7 +26,6 @@ class CustomViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("on entre dans la fct table view")
         let statPartie = items[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemTableViewCell
         cell.updateUI(stat: statPartie)

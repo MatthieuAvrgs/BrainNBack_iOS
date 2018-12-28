@@ -148,7 +148,29 @@ class GameController: UIViewController {
     }
     
     func afficherDialog (partie : Partie){
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        let score = partie.getScorePoint()
+        let alertController = UIAlertController(title: "Fin de la partie",
+                                                message: String(score)+" %",
+                                                preferredStyle: .alert)
+        
+        
+        alertController.addAction(UIAlertAction(title: "Rejouer", style: UIAlertAction.Style.default, handler: { action in
+            self.viewDidLoad()
+        }))
+        alertController.addAction(UIAlertAction(title: "Menu", style: UIAlertAction.Style.cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        let tableViewController = CustomViewController()
+        tableViewController.updateUI(items: partie.getStatistiquesPartie())
+        tableViewController.preferredContentSize = CGSize(width: 272, height: partie.getStatistiquesPartie().count * 44) // 44 => 1 cell
+        alertController.setValue(tableViewController, forKey: "contentViewController")
+        
+        self.present(alertController, animated: true)
+        {
+            // ...
+        }
+        /*let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
         // add the actions (buttons)
         alertController.addAction(UIAlertAction(title: "Rejouer", style: UIAlertAction.Style.default, handler: { action in
             self.viewDidLoad()
@@ -163,7 +185,7 @@ class GameController: UIViewController {
         contentViewController.updateUI(items: partie.getStatistiquesPartie())
 
         // show the alert
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)*/
     }
 
     func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
