@@ -124,7 +124,9 @@ class GameController: UIViewController {
             if(self.finJeu == false){
                 partie.calculerScore()
                 print("SCORE ",partie.getScorePoint())
-                self.afficherDialog(partie : partie)
+                DispatchQueue.main.async {
+                    self.afficherDialog(partie : partie)
+                }
 
             }
         }
@@ -146,20 +148,22 @@ class GameController: UIViewController {
     }
     
     func afficherDialog (partie : Partie){
-        //let alertController = UIAlertController(title: "\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
+        // add the actions (buttons)
+        alertController.addAction(UIAlertAction(title: "Rejouer", style: UIAlertAction.Style.default, handler: { action in
+            self.viewDidLoad()
+        }))
+        alertController.addAction(UIAlertAction(title: "Menu", style: UIAlertAction.Style.cancel, handler: { action in
+            self.navigationController?.popViewController(animated: true)
+        }))
         
-        //let customView = (UIView)ScorePopUpUITableViewController()
-        
-        //alertController.view.addSubview(customView)
-        
-        //let somethingAction = UIAlertAction(title: "Something", style: .default, handler: {(alert: UIAlertAction!) in print("something")})
-        
-        //let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {(alert: UIAlertAction!) in print("cancel")})
-        
-        //alertController.addAction(somethingAction)
-        //alertController.addAction(cancelAction)
-        
-        //self.present(alertController, animated: true, completion:{})
+        let contentViewController = CustomViewController()
+        //contentViewController.preferredContentSize = contentViewController.view.bounds.size
+        alertController.setValue(contentViewController, forKey: "contentViewController")
+        contentViewController.updateUI(items: partie.getStatistiquesPartie())
+
+        // show the alert
+        self.present(alertController, animated: true, completion: nil)
     }
 
     func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
