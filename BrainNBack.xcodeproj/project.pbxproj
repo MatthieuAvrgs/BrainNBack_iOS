@@ -24,7 +24,6 @@
 		E855BA2B21D391E200C9898B /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E855BA1E21D391B700C9898B /* SQLite.framework */; };
 		E855BA2C21D391E800C9898B /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E855BA1E21D391B700C9898B /* SQLite.framework */; };
 		E855BA2D21D391E800C9898B /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E855BA1E21D391B700C9898B /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E855BA3C21D3C12E00C9898B /* ScorePopUpUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E855BA3B21D3C12E00C9898B /* ScorePopUpUITableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +117,6 @@
 		55E844DB21C4056900592210 /* UIGameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGameTableViewController.swift; sourceTree = "<group>"; };
 		55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISettingsTableViewController.swift; sourceTree = "<group>"; };
 		E855BA1321D391B700C9898B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
-		E855BA3B21D3C12E00C9898B /* ScorePopUpUITableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScorePopUpUITableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,7 +183,6 @@
 				55E844DD21C40ADB00592210 /* UISettingsTableViewController.swift */,
 				0F28876C21C69D2C00961544 /* GameController.swift */,
 				0F28889821D13D6900961544 /* PersistancePartie.swift */,
-				E855BA3B21D3C12E00C9898B /* ScorePopUpUITableViewController.swift */,
 			);
 			path = BrainNBack;
 			sourceTree = "<group>";
@@ -344,7 +341,6 @@
 				0336099921C9253B00230D72 /* Settings.swift in Sources */,
 				0336099721C9251300230D72 /* PetitCarre.swift in Sources */,
 				0F28889921D13D6900961544 /* PersistancePartie.swift in Sources */,
-				E855BA3C21D3C12E00C9898B /* ScorePopUpUITableViewController.swift in Sources */,
 				0336099D21C9356500230D72 /* Statistique.swift in Sources */,
 				55B0EDC721C023820001B1B7 /* AppDelegate.swift in Sources */,
 			);

@@ -11,6 +11,9 @@ import UIKit
 class ScorePopUpUITableViewController: UITableViewController {
 
     
+    @IBOutlet weak var titleBarTable: UITableViewCell!
+    @IBOutlet weak var oneCell: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

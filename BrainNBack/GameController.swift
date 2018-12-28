@@ -72,6 +72,7 @@ class GameController: UIViewController {
             boutonCouleur.isHidden = true
         }
         
+        
         DispatchQueue.global(qos:.background).async {
             var color : UIColor = UIColor.blue
             var text : String
