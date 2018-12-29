@@ -8,25 +8,42 @@
 
 import Foundation
 
+
+
 class Settings {
-    var niveau : Int = 1
-    var temps : CLong = 3
-    var nbreItems : Int = 1
-    var couleur : Bool = true
-    var son : Bool = true
     
+    struct keys{
+        static let prefersNiveau = "prefersNiveau"
+        static let prefersTemps = "prefersTemps"
+        static let prefersItems = "prefersItems"
+        static let prefersSon = "prefersSon"
+        static let prefersCouleur = "prefersCouleur"
+    }
+    
+    var niveau : Int = 1
+    var temps : Double = 3
+    var nbreItems : Int = 5
+    var couleur : Bool
+    var son : Bool 
+    
+    let defaults = UserDefaults.standard
+
     init() {
-//        SharedPreferences SP = PreferenceManager.getDefaultSharedPreferences(c);
-//        boolean isSon = SP.getBoolean("son", false);
-//        boolean isCouleur = SP.getBoolean("couleur",false);
-//        String niveauS = SP.getString("niveau","1");
-//        String tempsS = SP.getString("temps","2000");
-//        String nbCarres = SP.getString("nbCarres","10");
-//        this.niveau = Integer.parseInt(niveauS);
-//        this.temps = Integer.parseInt(tempsS);
-//        this.nbreItems = Integer.parseInt(nbCarres);
-//        this.couleur = isCouleur;
-//        this.son = isSon;
+        let prefersNiveau = defaults.integer(forKey: keys.prefersNiveau)
+        if prefersNiveau != 0 {
+            niveau = prefersNiveau
+        }
+        let prefersItems = defaults.integer(forKey: keys.prefersItems)
+        if prefersItems != 0 {
+            nbreItems = prefersItems
+        }
+        let prefersTemps = defaults.integer(forKey: keys.prefersTemps)
+        if prefersTemps != 0 {
+            temps =  Double(prefersTemps) / 1000.0
+        }
+        son = defaults.bool(forKey: keys.prefersSon)
+        couleur = defaults.bool(forKey: keys.prefersCouleur)
+
     }
 
 
@@ -45,11 +62,11 @@ class Settings {
         self.niveau = niveau
     }
     
-    func getTemps() -> CLong {
+    func getTemps() -> Double {
         return self.temps
     }
     
-    func setTemps(temps : CLong) {
+    func setTemps(temps : Double) {
         self.temps = temps
     }
     

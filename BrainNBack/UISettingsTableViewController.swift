@@ -10,8 +10,15 @@ import UIKit
 
 class UISettingsTableViewController: UIViewController {
 
+    struct keys{
+        static let prefersNiveau = "prefersNiveau"
+        static let prefersTemps = "prefersTemps"
+        static let prefersItems = "prefersItems"
+        static let prefersSon = "prefersSon"
+        static let prefersCouleur = "prefersCouleur"
+    }
     
-    
+
     @IBOutlet var lblNiveau: UILabel!
     @IBOutlet var sliderNiveau: UISlider!
     
@@ -25,16 +32,23 @@ class UISettingsTableViewController: UIViewController {
     @IBOutlet var switchCouleur: UISwitch!
     @IBOutlet var switchSon: UISwitch!
     
+    let defaults = UserDefaults.standard
+    
+   
     @IBAction func sliderNiveauUpdate(_ sender: Any) {
         lblNiveau.text = String(Int(sliderNiveau.value))
+        defaults.set(sliderNiveau.value, forKey: keys.prefersNiveau)
     }
     
     @IBAction func sliderTempsUpdate(_ sender: Any) {
         lblTemps.text = String(Int(sliderTemps.value))+" ms"
+        defaults.set(sliderTemps.value, forKey: keys.prefersTemps)
     }
     
     @IBAction func sliderNbItemsUpdate(_ sender: Any) {
         lblNbItems.text = String(Int(sliderNbItems.value))
+        defaults.set(sliderNbItems.value,forKey: keys.prefersItems)
+        
     }
     
     
@@ -48,25 +62,50 @@ class UISettingsTableViewController: UIViewController {
     }
 
     func getNiveauBdd() -> String{
-        return String(1);
+        let prefersNiveau = defaults.integer(forKey: keys.prefersNiveau)
+        var returnvalue = 1
+        if prefersNiveau != 0 {
+            returnvalue = prefersNiveau
+            sliderNiveau.value = Float(returnvalue)
+        }
+        return String(returnvalue);
     }
     func getTempsBdd() -> String{
-        return String(1000)+"ms";
+        let prefersTemps = defaults.integer(forKey: keys.prefersTemps)
+        var returnvalue = 1000
+        if prefersTemps != 0 {
+            returnvalue = prefersTemps
+            sliderTemps.value = Float(returnvalue)
+        }
+        return String(returnvalue)+"ms";
     }
     func getNbItemsBdd() -> String{
-        return String(5);
+        let prefersItems = defaults.integer(forKey: keys.prefersItems)
+        var returnvalue = 5
+        if prefersItems != 0 {
+            returnvalue = prefersItems
+            sliderNbItems.value = Float(returnvalue)
+        }
+        return String(returnvalue);
     }
     func getSwitchCouleurState() -> Bool{
-        return false;
+        return defaults.bool(forKey: keys.prefersCouleur);
     }
     func getSwitchSonState() -> Bool{
-        return false;
+        return defaults.bool(forKey: keys.prefersSon);
     }
     
+    @IBAction func SonIsChanged(_ sender: Any) {
+        defaults.set(switchSon.isOn, forKey: keys.prefersSon)
+    }
+    @IBAction func CouleurIsChanged(_ sender: Any) {
+        defaults.set(switchCouleur.isOn, forKey: keys.prefersCouleur)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+   
 
     
 }
