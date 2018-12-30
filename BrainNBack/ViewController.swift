@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         //Database test
         let data =  PersistancePartie()
         data.createTable()
-        data.insertPartie()
     }
 
     override func didReceiveMemoryWarning() {
