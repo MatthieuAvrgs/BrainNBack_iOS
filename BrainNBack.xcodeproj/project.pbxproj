@@ -29,6 +29,7 @@
 		E855BA2D21D391E800C9898B /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E855BA1E21D391B700C9898B /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E863C97821D62450000524EA /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863C97721D62450000524EA /* CustomViewController.swift */; };
 		E863C97A21D6247E000524EA /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E863C97921D6247E000524EA /* ItemTableViewCell.swift */; };
+		E88DE4FD21D8D431002F0490 /* logoBrainNBack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E88DE4FC21D8D431002F0490 /* logoBrainNBack.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		E855BA1321D391B700C9898B /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "../../Downloads/SQLite.swift-master/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		E863C97721D62450000524EA /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		E863C97921D6247E000524EA /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		E88DE4FC21D8D431002F0490 /* logoBrainNBack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = logoBrainNBack.jpg; path = ../../../Desktop/logoBrainNBack.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				55B0EDD021C023930001B1B7 /* Assets.xcassets */,
 				55B0EDD221C023930001B1B7 /* LaunchScreen.storyboard */,
 				55B0EDD521C023930001B1B7 /* Info.plist */,
+				E88DE4FC21D8D431002F0490 /* logoBrainNBack.jpg */,
 				55B0EDCD21C023830001B1B7 /* BrainNBack.xcdatamodeld */,
 				55E844DB21C4056900592210 /* UIGameTableViewController.swift */,
 				0F9E0E0021D5241100B37A77 /* HistoriqueTableViews.swift */,
@@ -337,6 +340,7 @@
 				55B0EDD421C023930001B1B7 /* LaunchScreen.storyboard in Resources */,
 				55B0EDD121C023930001B1B7 /* Assets.xcassets in Resources */,
 				55B0EDCC21C023820001B1B7 /* Main.storyboard in Resources */,
+				E88DE4FD21D8D431002F0490 /* logoBrainNBack.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

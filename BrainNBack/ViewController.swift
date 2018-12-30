@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         do {
             let data =  PersistancePartie()
             let database = try data.database.prepare(data.historique_table)
+            historiqueData = []
             for ligne in database {
                 self.historiqueData.append(StatUnePartie(date: ligne[data.historique_date], niveau: ligne[data.historique_niveau], couleur: ligne[data.historique_couleur], son: ligne[data.historique_son], score: ligne[data.historique_score]))
             }
@@ -38,7 +39,6 @@ class ViewController: UIViewController {
         //Database test
         let data =  PersistancePartie()
         data.createTable()
-        data.insertPartie()
         
         btnPlay.center.x = self.view.center.x
         lblPlay.center.x = self.view.center.x
@@ -95,6 +95,8 @@ class ViewController: UIViewController {
         return String(compteurParties)
     }
 
-
+    override func viewWillAppear(_ animated: Bool){
+        viewDidLoad()
+    }
 }
 

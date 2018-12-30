@@ -19,7 +19,7 @@ class Partie {
         self.scorePoint = 0
         self.settingPartie = settingPartie
         self.listeCarres = []
-        for _ in 0 ... self.settingPartie.getNbreItems() {
+        for _ in 1 ... self.settingPartie.getNbreItems() {
             listeCarres = listeCarres + [PetitCarre(listeCarres : self.listeCarres, niveau : settingPartie.getNiveau())]
         }
         self.statistiquesPartie=[]
@@ -76,7 +76,7 @@ class Partie {
         var reponseCouleur = 0
         
         //boucle qui permet d'itérer sur chaque PetitCarre
-        for index in 0...getSettingPartie().getNbreItems() {
+        for index in 0...getSettingPartie().getNbreItems()-1 {
             //si indew>=niveau signifie qu'une réponse de l'utilisateur est possible
             if(index>=niveau){
                 //position

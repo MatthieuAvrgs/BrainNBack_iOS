@@ -19,8 +19,8 @@ class CelluleStatUnePartie: UITableViewCell {
     func setCell(statUnePartie : StatUnePartie){
         date.text = statUnePartie.date
         niveau.text = statUnePartie.niveau
-        couleur.text = statUnePartie.couleur
-        score.text = statUnePartie.score
-        son.text = statUnePartie.son
+        couleur.text = statUnePartie.couleur == "true" ? "oui" : "non"
+        score.text = statUnePartie.score + "%"
+        son.text = statUnePartie.son == "true" ? "oui" : "non"
     }
 }

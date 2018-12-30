@@ -84,7 +84,8 @@ class GameController: UIViewController {
         DispatchQueue.global(qos:.background).async {
             var color : UIColor = UIColor.blue
             var text : String
-            for i in 0 ... settingsPartie.getNbreItems() {
+            Thread.sleep(until: Date(timeIntervalSinceNow: TimeInterval(1)))
+            for i in 0 ... settingsPartie.getNbreItems()-1 {
                 if(self.finJeu == false){
                     //initialisation des réponses
                     self.reponses[0]=false
@@ -96,11 +97,6 @@ class GameController: UIViewController {
                         color = colorMap[partie.getListeCarres()[i].getCouleur()]!
                     }
                     
-                    print("carre ",i)
-                    //print(settingsPartie.getNbreItems())
-                    //print(partie.getListeCarres()[i].getPosition())
-                    //print(partie.getListeCarres()[i].getSon())
-                    //print(partie.getListeCarres()[i].getCouleur())
                     //carré à afficher
                     DispatchQueue.main.async {
                         self.changeColor(listeVueCarre: listeVueCarre, index: partie.getListeCarres()[i].getPosition(), color : color)
@@ -125,13 +121,11 @@ class GameController: UIViewController {
                     
                     //enregistrement des réponses
                     let repBool : [Bool] = [self.reponses[0],self.reponses[1],self.reponses[2]]
-                    print(repBool)
                     partie.getListeCarres()[i].setReponses(tableauReponses: repBool)
                 }
             }
             if(self.finJeu == false){
                 partie.calculerScore()
-                print("SCORE ",partie.getScorePoint())
                 let data =  PersistancePartie()
                 let statPartie = StatUnePartie(date : "generate", niveau : String(settingsPartie.getNiveau()), couleur : String(settingsPartie.isCouleur()), son : String(settingsPartie.isSon()), score : String(partie.getScorePoint()))
                 data.insertStatPartie(stat : statPartie)
@@ -181,22 +175,6 @@ class GameController: UIViewController {
         {
             // ...
         }
-        /*let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
-        // add the actions (buttons)
-        alertController.addAction(UIAlertAction(title: "Rejouer", style: UIAlertAction.Style.default, handler: { action in
-            self.viewDidLoad()
-        }))
-        alertController.addAction(UIAlertAction(title: "Menu", style: UIAlertAction.Style.cancel, handler: { action in
-            self.navigationController?.popViewController(animated: true)
-        }))
-        
-        let contentViewController = CustomViewController()
-        //contentViewController.preferredContentSize = contentViewController.view.bounds.size
-        alertController.setValue(contentViewController, forKey: "contentViewController")
-        contentViewController.updateUI(items: partie.getStatistiquesPartie())
-
-        // show the alert
-        self.present(alertController, animated: true, completion: nil)*/
     }
 
     func changeColor (listeVueCarre : [UIView], index: Int, color: UIColor){
