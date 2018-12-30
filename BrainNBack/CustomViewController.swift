@@ -33,6 +33,13 @@ class CustomViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell") as! ItemTableViewCell
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
 }
 
 // MARK: - UITableViewDataSource

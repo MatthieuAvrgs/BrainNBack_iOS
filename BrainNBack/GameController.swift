@@ -24,6 +24,7 @@ class GameController: UIViewController {
     @IBOutlet weak var boutonPosition: UIButton!
     @IBOutlet weak var boutonSon: UIButton!
     @IBOutlet weak var boutonCouleur: UIButton!
+    @IBOutlet weak var lblNiveau: UILabel!
     
     var reponses : [Bool] = [false,false,false]
     var finJeu : Bool = false
@@ -58,6 +59,7 @@ class GameController: UIViewController {
         sonMap[8]="h"
         sonMap[9]="i"
         
+        lblNiveau.text = getNiveauEnCours()
         self.finJeu = false
         self.designBouton(btn : boutonPosition)
 
@@ -161,8 +163,7 @@ class GameController: UIViewController {
         let alertController = UIAlertController(title: "Fin de la partie",
                                                 message: String(score)+" %",
                                                 preferredStyle: .alert)
-        
-        
+
         alertController.addAction(UIAlertAction(title: "Rejouer", style: UIAlertAction.Style.default, handler: { action in
             self.viewDidLoad()
         }))
@@ -173,7 +174,7 @@ class GameController: UIViewController {
         let tableViewController = storyboard?.instantiateViewController(withIdentifier: "CustomViewController")
         as! CustomViewController
         tableViewController.updateUI(items: partie.getStatistiquesPartie())
-        tableViewController.preferredContentSize = CGSize(width: 272, height: partie.getStatistiquesPartie().count * 44) // 44 => 1 cell
+        tableViewController.preferredContentSize = CGSize(width: 330, height: (partie.getStatistiquesPartie().count + 1) * 44) // 44 => 1 cell
         alertController.setValue(tableViewController, forKey: "contentViewController")
         
         self.present(alertController, animated: true)
@@ -217,6 +218,10 @@ class GameController: UIViewController {
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.black.cgColor
         btn.contentEdgeInsets = UIEdgeInsetsMake(5,5,5,5)
+    }
+    
+    func getNiveauEnCours() -> String{
+        return UISettingsTableViewController().getNiveauForDisplay()
     }
 
 }

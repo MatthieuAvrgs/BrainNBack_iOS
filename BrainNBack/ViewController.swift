@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     @IBOutlet var lblNiveauLePlusHaut: UILabel!
     @IBOutlet var lblNbPartiesJouees: UILabel!
     
-    @IBOutlet var lblNiveau: UILabel!
+    @IBOutlet weak var btnPlay: UIButton!
+    @IBOutlet weak var lblPlay: UIButton!
+    @IBOutlet weak var btnHistorique: UIButton!
     
     var historiqueData : [StatUnePartie] = []
     override func viewDidLoad() {
@@ -32,12 +34,15 @@ class ViewController: UIViewController {
         lblMeilleurScore.text = getMeilleurScore(data : self.historiqueData)
         lblNiveauLePlusHaut.text = getiveauLePlusHaut(data : self.historiqueData)
         lblNbPartiesJouees.text = getbPartiesJouees(data : self.historiqueData)
-        lblNiveau.text = getNiveauEnCours()
         
         //Database test
         let data =  PersistancePartie()
         data.createTable()
         data.insertPartie()
+        
+        btnPlay.center.x = self.view.center.x
+        lblPlay.center.x = self.view.center.x
+        btnHistorique.center.x = self.view.center.x
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,9 +93,6 @@ class ViewController: UIViewController {
             }
         }
         return String(compteurParties)
-    }
-    func getNiveauEnCours() -> String{
-        return String(1)
     }
 
 

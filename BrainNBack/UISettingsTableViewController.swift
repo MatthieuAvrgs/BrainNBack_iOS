@@ -70,6 +70,14 @@ class UISettingsTableViewController: UIViewController {
         }
         return String(returnvalue);
     }
+    func getNiveauForDisplay() -> String{
+        let prefersNiveau = defaults.integer(forKey: keys.prefersNiveau)
+        var returnvalue = 1
+        if prefersNiveau != 0 {
+            returnvalue = prefersNiveau
+        }
+        return String(returnvalue);
+    }
     func getTempsBdd() -> String{
         let prefersTemps = defaults.integer(forKey: keys.prefersTemps)
         var returnvalue = 1000
@@ -105,7 +113,5 @@ class UISettingsTableViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-   
-
     
 }
